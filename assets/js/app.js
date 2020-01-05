@@ -21,7 +21,7 @@ hamMenu.addEventListener("click", () => {
 });
 
 const vibrateDevice = milsec => {
-  window.navigator.vibrate(milsec);
+  return navigator.vibrate(milsec);
 };
 const digitalTasbeeh = () => {
   const digitalInput = document.querySelector(".digital-tasbeeh-value");

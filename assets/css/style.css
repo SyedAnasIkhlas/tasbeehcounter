@@ -13,7 +13,6 @@
 }
 
 body {
-  height: 100vh;
   overflow-x: hidden;
   width: 100%;
 }
@@ -32,6 +31,8 @@ body {
 .loading-finish {
   opacity: 0;
   pointer-events: none;
+  height: 100%;
+  position: fixed;
 }
 
 nav {
@@ -44,6 +45,8 @@ nav {
   width: 90%;
   margin: 0 auto;
   background-color: #fffcfc;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 nav .logo {
@@ -51,20 +54,20 @@ nav .logo {
 }
 
 nav ul {
-  height: 106vh;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 60;
   border-left: 1px solid coral;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  width: 40vh;
+  width: 60%;
   background-color: #fffcfc;
   transform: translate(270px);
   transition: all 1s ease-in-out;
   display: none;
+  height: 100%;
 }
 
 nav ul li {
@@ -109,10 +112,12 @@ nav ul li a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 94vh;
   justify-content: space-around;
 }
 
+.options {
+  margin-top: 15px;
+}
 .options button {
   padding: 9px;
   width: 130px;
@@ -126,7 +131,7 @@ nav ul li a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 
 .target-container input {
@@ -255,8 +260,11 @@ nav ul li a {
 }
 
 @media screen and (min-width: 800px) {
+  nav ul {
+    width: 20%;
+  }
   .tasbeeh-container {
-    height: 94vh;
+    /* height: 94%; */
   }
 
   .options button {
