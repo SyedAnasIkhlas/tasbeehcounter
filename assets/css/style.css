@@ -1,0 +1,383 @@
+@import url("https://fonts.googleapis.com/css?family=Kulim+Park&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Kulim Park", sans-serif;
+}
+.logo {
+  color: coral;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.preloader {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: coral;
+  transition: opacity 2s ease-in-out;
+}
+
+.loading-finish {
+  opacity: 0;
+  pointer-events: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid coral;
+  border-top: none;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #fffcfc;
+}
+
+nav .logo {
+  flex: 1;
+}
+
+nav ul {
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-left: 1px solid coral;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 40vh;
+  background-color: #fffcfc;
+  transform: translate(270px);
+  transition: all 1s ease-in-out;
+  display: none;
+}
+
+nav ul li {
+  list-style: none;
+  opacity: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: coral;
+}
+.ham-menu {
+  cursor: pointer;
+  z-index: 2;
+}
+
+.ham-menu .line {
+  width: 30px;
+  height: 04px;
+  margin-bottom: 5px;
+  background-color: darkorange;
+  transition: all 0.3s ease;
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 7px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -8px);
+}
+.slide {
+  display: flex;
+  transform: translate(0px);
+}
+
+.tasbeeh-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 94vh;
+  justify-content: space-around;
+}
+
+.options button {
+  padding: 9px;
+  width: 130px;
+  background-color: coral;
+  border-radius: 3px;
+  border: 1px solid;
+  color: #fff;
+}
+
+.target-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.target-container input {
+  height: 100px;
+  width: 100px;
+  text-align: center;
+}
+
+.tasbeeh {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid;
+  width: 300px;
+  height: 350px;
+  border: 1px solid coral;
+  border-radius: 16px;
+  padding: 10px 15px;
+}
+
+.tasbeeh-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+}
+.tasbeeh .logo {
+  margin-top: 15px;
+  margin-bottom: 2px;
+}
+
+.tasbeeh button {
+  outline: none;
+}
+
+.tasbeeh input {
+  width: 80%;
+  padding: 8px;
+  padding-bottom: 0px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid #ff7f50;
+  height: 60px;
+  outline: none;
+  text-align: end;
+}
+
+.reset-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-right: 5px;
+}
+
+.add-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.deduct-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-left: 5px;
+}
+
+.reset {
+  border-radius: 50px;
+  padding: 5px;
+  border: 1px solid;
+  font-size: 9px;
+  width: 20px;
+  color: coral;
+  background-color: #fff;
+}
+
+.reset:hover {
+  color: #d04511;
+  cursor: pointer;
+}
+
+.deduct {
+  border-radius: 50px;
+  padding: 5px;
+  border: 1px solid;
+  font-size: 9px;
+  width: 20px;
+  color: coral;
+  background-color: #fff;
+}
+
+.deduct:hover {
+  color: #da5f31;
+  cursor: pointer;
+}
+
+.add {
+  border-radius: 89px;
+  padding: 5px;
+  border: 1px solid;
+  font-size: 9px;
+  width: 200px;
+  height: 200px;
+  color: coral;
+  background-color: #fff;
+}
+
+.add:hover {
+  color: #c57253;
+  cursor: pointer;
+}
+
+.comment {
+  width: 300px;
+}
+.tasbeeh-textarea {
+  width: 100%;
+  border: 1px solid coral;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+@media screen and (min-width: 800px) {
+  .tasbeeh-container {
+    height: 94vh;
+  }
+
+  .options button {
+    padding: 9px;
+    width: 130px;
+  }
+
+  .target-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  .target-container input {
+    height: 100px;
+    width: 100px;
+  }
+
+  .tasbeeh {
+    margin: 0 auto;
+    width: 300px;
+    height: 350px;
+    padding: 10px 15px;
+  }
+
+  .tasbeeh-action {
+    width: 100%;
+    height: 100%;
+    padding: 6px;
+  }
+  .tasbeeh .logo {
+    margin-top: 15px;
+    margin-bottom: 2px;
+  }
+
+  .tasbeeh input {
+    width: 80%;
+    padding: 8px;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+    height: 60px;
+  }
+
+  .reset-container {
+    width: 100%;
+    margin-right: 5px;
+  }
+
+  .add-container {
+    width: 100%;
+  }
+
+  .deduct-container {
+    width: 100%;
+    margin-left: 5px;
+  }
+
+  .reset {
+    padding: 5px;
+    border: 1px solid;
+    font-size: 9px;
+    width: 20px;
+  }
+
+  .reset:hover {
+    color: #d04511;
+    cursor: pointer;
+  }
+
+  .deduct {
+    padding: 5px;
+    border: 1px solid;
+    font-size: 9px;
+    width: 20px;
+  }
+
+  .deduct:hover {
+    color: #da5f31;
+    cursor: pointer;
+  }
+
+  .add {
+    padding: 5px;
+    font-size: 9px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .add:hover {
+    color: #c57253;
+    cursor: pointer;
+  }
+
+  .comment {
+    width: 300px;
+  }
+  .tasbeeh-textarea {
+    width: 100%;
+    border: 1px solid coral;
+    border-radius: 5px;
+    padding: 15px;
+  }
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes line {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(180px);
+  }
+}
