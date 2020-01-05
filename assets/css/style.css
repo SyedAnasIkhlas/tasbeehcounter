@@ -51,7 +51,7 @@ nav .logo {
 }
 
 nav ul {
-  height: 100vh;
+  height: 100%;
   position: absolute;
   right: 0;
   top: 0;

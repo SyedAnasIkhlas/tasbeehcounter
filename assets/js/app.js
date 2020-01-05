@@ -39,7 +39,7 @@ const digitalTasbeeh = () => {
   digitalResetButton.addEventListener("click", function() {
     const resetDT = confirm("Are you sure you want to reset your record?");
     if (resetDT == true) {
-      vibrateDevice(2000);
+      vibrateDevice(200);
       digitalInputValue = parseInt(digitalInputValue);
       digitalInputValue = digitalInputValue - digitalInputValue;
       digitalInput.value = digitalInputValue;
