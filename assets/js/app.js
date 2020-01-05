@@ -49,7 +49,7 @@ const digitalTasbeeh = () => {
 
   //   Adding one to input filed
   digitalAddButton.addEventListener("click", function() {
-    vibrateDevice(2000);
+    vibrateDevice(200);
     digitalInputValue = parseInt(digitalInputValue);
     digitalInputValue = digitalInputValue + 1;
     digitalInput.value = digitalInputValue;
@@ -58,7 +58,7 @@ const digitalTasbeeh = () => {
 
   //   Deducting one to input filed
   digitalDeductButton.addEventListener("click", function() {
-    vibrateDevice(2000);
+    vibrateDevice(200);
     digitalInputValue = parseInt(digitalInputValue);
     if (digitalInputValue == 0) {
       digitalInputValue = 0;
