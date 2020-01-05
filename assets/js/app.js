@@ -31,8 +31,13 @@ const digitalTasbeeh = () => {
   const digitalDeductButton = document.querySelector(".deduct");
 
   window.addEventListener("load", function() {
-    digitalInput.value = getFromLocalStorage("digital");
-    digitalInputValue = digitalInput.value;
+    digitalValue = getFromLocalStorage("digital");
+    if (digitalValue == null) {
+      digitalValue = 0;
+    } else {
+      digitalInput.value = digitalValue;
+      digitalInputValue = digitalInput.value;
+    }
   });
 
   //   Resetting input filed to 0
@@ -77,9 +82,9 @@ const setLocalStorage = (key, val) => {
 //   Getting item from localstorage
 const getFromLocalStorage = val => {
   const storeVal = localStorage.getItem(val);
-  if (storeVal == null) {
-    storeVal = 0;
-  }
+  // if (storeVal == null) {
+  //   storeVal = 0;
+  // }
   return storeVal;
 };
 
