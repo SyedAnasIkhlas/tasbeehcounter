@@ -4,6 +4,9 @@ const noteValue = note.value;
 const slideMenu = document.querySelector(".slide-menu");
 const slideMenuItems = document.querySelectorAll(".slide-menu li");
 const hamMenu = document.querySelector(".ham-menu");
+const localStorageClear = document.querySelector(".local-storage");
+const optionsButton = document.querySelector(".options-button");
+const optionsContainer = document.querySelector(".options-container");
 
 hamMenu.addEventListener("click", () => {
   slideMenu.classList.toggle("slide");
@@ -20,6 +23,16 @@ hamMenu.addEventListener("click", () => {
   hamMenu.classList.toggle("toggle");
 });
 
+optionsButton.addEventListener("click", function() {
+  optionsContainer.classList.toggle("toggle-options");
+});
+
+localStorageClear.addEventListener("click", function() {
+  if (confirm("Press'Ok'if you want to clear local storage?")) {
+    localStorage.clear();
+  }
+});
+
 const vibrateDevice = milsec => {
   return navigator.vibrate(milsec);
 };
@@ -32,8 +45,11 @@ const digitalTasbeeh = () => {
 
   window.addEventListener("load", function() {
     digitalValue = getFromLocalStorage("digital");
+    console.log(digitalValue);
     if (digitalValue == null) {
       digitalValue = 0;
+      digitalInput.value = 0;
+      digitalInputValue = digitalInput.value;
     } else {
       digitalInput.value = digitalValue;
       digitalInputValue = digitalInput.value;
@@ -48,7 +64,7 @@ const digitalTasbeeh = () => {
       digitalInputValue = parseInt(digitalInputValue);
       digitalInputValue = digitalInputValue - digitalInputValue;
       digitalInput.value = digitalInputValue;
-      setLocalStorage("classic", digitalInputValue);
+      setLocalStorage("digital", digitalInputValue);
     }
   });
 
@@ -58,7 +74,7 @@ const digitalTasbeeh = () => {
     digitalInputValue = parseInt(digitalInputValue);
     digitalInputValue = digitalInputValue + 1;
     digitalInput.value = digitalInputValue;
-    setLocalStorage("classic", digitalInputValue);
+    setLocalStorage("digital", digitalInputValue);
   });
 
   //   Deducting one to input filed
@@ -70,7 +86,7 @@ const digitalTasbeeh = () => {
     } else {
       digitalInputValue = digitalInputValue - 1;
     }
-    setLocalStorage("classic", digitalInputValue);
+    setLocalStorage("digital", digitalInputValue);
     digitalInput.value = digitalInputValue;
   });
 };
@@ -78,13 +94,11 @@ const digitalTasbeeh = () => {
 //Setting localStorage
 const setLocalStorage = (key, val) => {
   localStorage.setItem(key, val);
+  // console.log(localStorage.getItem(key));
 };
 //   Getting item from localstorage
-const getFromLocalStorage = val => {
-  const storeVal = localStorage.getItem(val);
-  // if (storeVal == null) {
-  //   storeVal = 0;
-  // }
+const getFromLocalStorage = key => {
+  const storeVal = localStorage.getItem(key);
   return storeVal;
 };
 

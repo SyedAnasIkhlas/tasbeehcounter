@@ -119,8 +119,8 @@ nav ul li a {
 }
 
 .options {
-  margin-top: 15px;
-  z-index: -2;
+  margin-top: 50px;
+/*   z-index: -2; */
 }
 .options button {
   padding: 9px;
@@ -131,11 +131,38 @@ nav ul li a {
   color: #fff;
 }
 
+.options-container {
+  display: none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:row;
+  margin-bottom:30px;
+}
+.title-button
+{
+  display:flex;
+  flex-direction:column;
+  margin-top:5px;
+}
+.title-button span
+{
+  margin-bottom:5px;
+}
+.title-button button
+{
+  margin-bottom:5px;
+}
+
+.toggle-options {
+  display: flex;
+}
+
 .target-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 20px;
+  margin-bottom:30px;
 }
 
 .target-container input {
