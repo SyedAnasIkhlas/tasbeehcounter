@@ -77,6 +77,9 @@ const setLocalStorage = (key, val) => {
 //   Getting item from localstorage
 const getFromLocalStorage = val => {
   const storeVal = localStorage.getItem(val);
+  if (storeVal == null) {
+    storeVal = 0;
+  }
   return storeVal;
 };
 
