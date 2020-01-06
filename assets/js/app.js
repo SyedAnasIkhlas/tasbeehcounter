@@ -7,6 +7,8 @@ const hamMenu = document.querySelector(".ham-menu");
 const localStorageClear = document.querySelector(".local-storage");
 const optionsButton = document.querySelector(".options-button");
 const optionsContainer = document.querySelector(".options-container");
+const target = document.querySelector(".target");
+const targetValue = target.value;
 
 hamMenu.addEventListener("click", () => {
   slideMenu.classList.toggle("slide");
@@ -28,7 +30,7 @@ optionsButton.addEventListener("click", function() {
 });
 
 localStorageClear.addEventListener("click", function() {
-  if (confirm("Press'Ok'if you want to clear local storage?")) {
+  if (confirm("Press'Ok'if you want to clear all data!!!")) {
     localStorage.clear();
   }
 });
@@ -59,11 +61,13 @@ const digitalTasbeeh = () => {
   //   Resetting input filed to 0
   digitalResetButton.addEventListener("click", function() {
     const resetDT = confirm("Are you sure you want to reset your record?");
+    let targetValueBefore = digitalInput.value;
     if (resetDT == true) {
-      vibrateDevice(100);
+      vibrateDevice(200);
       digitalInputValue = parseInt(digitalInputValue);
       digitalInputValue = digitalInputValue - digitalInputValue;
       digitalInput.value = digitalInputValue;
+      targetStore("reset", targetValueBefore);
       setLocalStorage("digital", digitalInputValue);
     }
   });
@@ -74,6 +78,7 @@ const digitalTasbeeh = () => {
     digitalInputValue = parseInt(digitalInputValue);
     digitalInputValue = digitalInputValue + 1;
     digitalInput.value = digitalInputValue;
+    targetStore("add", 0);
     setLocalStorage("digital", digitalInputValue);
   });
 
@@ -86,6 +91,7 @@ const digitalTasbeeh = () => {
     } else {
       digitalInputValue = digitalInputValue - 1;
     }
+    targetStore("deduct", 0);
     setLocalStorage("digital", digitalInputValue);
     digitalInput.value = digitalInputValue;
   });
@@ -102,15 +108,55 @@ const getFromLocalStorage = key => {
   return storeVal;
 };
 
-note.addEventListener("keyup", function() {
+note.addEventListener("keyup", () => {
   setLocalStorage("note", note.value);
 });
 
 window.addEventListener("load", function() {
   preloader.classList.add("loading-finish");
-  if (getFromLocalStorage("note") != null) {
-    note.vaule = getFromLocalStorage("note");
+  const oldNote = getFromLocalStorage("note");
+  const oldTarget = getFromLocalStorage("target");
+  if (oldNote != null) {
+    note.value = oldNote;
+  }
+
+  if (oldTarget != null) {
+    target.value = oldTarget;
+  } else {
+    target.value = 0;
   }
 });
 
+target.addEventListener("keyup", () => {
+  setLocalStorage("target", target.value);
+});
+
+const targetStore = (action, inputVal) => {
+  if (target.value <= 0) {
+    target.value = 0;
+  } else {
+    if (action == "add") {
+      setLocalStorage("target", target.value - 1);
+      target.value = target.value - 1;
+      if (target.value == 0) {
+        setLocalStorage("target", 0);
+        vibrateDevice(300);
+        alert("Target Reached");
+      }
+    }
+
+    if (action == "deduct") {
+      setLocalStorage("target", Math.abs(-target.value - 1));
+      target.value = Math.abs(-target.value - 1);
+    }
+
+    if (action == "reset") {
+      let input = inputVal;
+      let tar = target.value;
+      console.log(Math.abs(-tar - input));
+      setLocalStorage("target", Math.abs(-tar - input));
+      target.value = Math.abs(-tar - input);
+    }
+  }
+};
 digitalTasbeeh();

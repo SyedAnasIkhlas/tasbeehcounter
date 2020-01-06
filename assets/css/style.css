@@ -290,6 +290,44 @@ nav ul li a {
   padding: 15px;
 }
 
+footer
+{
+  height:20vh;
+  background-color:coral;
+  margin-top:12px;
+  padding:14px;
+  color:#fff;
+  display:flex;
+  flex-direction:row;
+}
+
+footer a
+{
+  text-decoration:none;
+  color:#fff;
+  margin-bottom:2px;
+}
+
+footer .left{
+    display:flex;
+  flex-direction:column;
+  flex:1;
+  align-items:center
+}
+
+footer .right{
+   display:flex;
+  flex-direction:column;
+  flex:1;
+  align-items:center;
+}
+
+footer .head
+{
+  margin-bottom:5px;
+  text-decoration:underline;
+}
+
 @media screen and (min-width: 800px) {
   nav ul {
     width: 20%;
@@ -392,6 +430,13 @@ nav ul li a {
 
   .comment {
     width: 300px;
+    margin-top:14px;
+  }
+
+  .comment span
+  {
+    margin-bottom:5px;
+    color:coral;
   }
   .tasbeeh-textarea {
     width: 100%;
