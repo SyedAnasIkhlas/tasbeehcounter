@@ -91,7 +91,7 @@ const digitalTasbeeh = () => {
     } else {
       digitalInputValue = digitalInputValue - 1;
     }
-    targetStore("deduct", 0);
+    targetStore("deduct", digitalInput.value);
     setLocalStorage("digital", digitalInputValue);
     digitalInput.value = digitalInputValue;
   });
@@ -146,8 +146,11 @@ const targetStore = (action, inputVal) => {
     }
 
     if (action == "deduct") {
-      setLocalStorage("target", Math.abs(-target.value - 1));
-      target.value = Math.abs(-target.value - 1);
+      if(inputVal != 0){
+        setLocalStorage("target", Math.abs(-target.value - 1));
+        target.value = Math.abs(-target.value - 1);
+      }
+      
     }
 
     if (action == "reset") {
