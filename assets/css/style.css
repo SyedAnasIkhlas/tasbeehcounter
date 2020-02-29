@@ -508,3 +508,28 @@ footer .head
     transform: rotate(180px);
   }
 }
+
+/* dark theme */
+
+.dark
+{
+  background-color:black;
+  color:#fff;
+}
+
+.dark .tasbeeh
+{
+  background-color:white;
+  color:#fff;
+}
+
+.dark footer
+{
+  background-color:#fff;
+  color:#000;
+}
+
+.dark footer a
+{
+  color:#000
+}
