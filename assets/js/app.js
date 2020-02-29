@@ -113,6 +113,8 @@ note.addEventListener("keyup", () => {
 });
 
 window.addEventListener("load", function() {
+  const theme = getFromLocalStorage("theme")
+  addTheme(theme)
   preloader.classList.add("loading-finish");
   const oldNote = getFromLocalStorage("note");
   const oldTarget = getFromLocalStorage("target");
@@ -162,4 +164,27 @@ const targetStore = (action, inputVal) => {
     }
   }
 };
+
+
+// dark theme
+// function
+function addTheme(theme="dark")
+{
+  const body = document.querySelector("body");
+  body.classList.toggle(theme);
+}
+
+darkTheme = document.querySelector(".dark-theme");
+
+darkTheme.addEventListener("click",function()
+{
+  addTheme();
+  setLocalStorage("theme","dark")
+})
+
+
+
+
 digitalTasbeeh();
+
+
