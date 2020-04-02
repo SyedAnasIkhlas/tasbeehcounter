@@ -6,7 +6,15 @@
   box-sizing: border-box;
   font-family: "Kulim Park", sans-serif;
 }
+.souq-ad
+{
+  min-width:99vw;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-top:20;
 
+}
 input,
 textarea,
 button,
