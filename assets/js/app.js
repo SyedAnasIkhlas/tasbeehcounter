@@ -168,18 +168,32 @@ const targetStore = (action, inputVal) => {
 
 // dark theme
 // function
-function addTheme(theme="dark")
+function addTheme(theme)
 {
   const body = document.querySelector("body");
-  body.classList.toggle(theme);
+  if(theme == "default")
+  {
+    body.classList.remove("dark");
+  }
+  else
+  {
+    body.classList.toggle(theme);
+  }
 }
-
+// Theme's
 darkTheme = document.querySelector(".dark-theme");
+defaultTheme = document.querySelector(".default-theme");
 
 darkTheme.addEventListener("click",function()
 {
-  addTheme();
+  addTheme("dark");
   setLocalStorage("theme","dark")
+})
+
+defaultTheme.addEventListener("click",function()
+{
+  addTheme("default");
+  setLocalStorage("theme","default")
 })
 
 
