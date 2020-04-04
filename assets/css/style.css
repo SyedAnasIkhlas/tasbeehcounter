@@ -37,6 +37,8 @@ body {
 .preloader {
   position: absolute;
   /* display: flex; */
+  display: none;
+  /* remove display none to show preloader */
   justify-content: center;
   align-items: center;
   width: 100%;
