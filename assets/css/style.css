@@ -6,24 +6,21 @@
   box-sizing: border-box;
   font-family: "Kulim Park", sans-serif;
 }
-.souq-ad
-{
-  min-width:99vw;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-top:20;
-
+.souq-ad {
+  min-width: 99vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20;
+  flex-direction: column;
 }
 input,
 textarea,
 button,
 select,
 a {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-
 
 .logo {
   color: coral;
@@ -34,19 +31,19 @@ a {
 body {
   overflow-x: hidden;
   min-width: 100vw;
-  min-height:100vh;
+  min-height: 100vh;
 }
 
 .preloader {
   position: absolute;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   width: 100%;
   min-height: 100vh;
   background-color: coral;
   transition: opacity 2s ease-in-out;
-  overflow:none;
+  overflow: none;
 }
 
 .loading-finish {
@@ -137,14 +134,14 @@ nav ul li a {
   align-items: center;
   justify-content: space-around;
   margin-top: 25px;
-  min-height:100vh;
-  min-width:90vw;
+  min-height: 100vh;
+  min-width: 90vw;
 }
 
 .options {
   margin-top: 50px;
-  text-align:center;
-/*   z-index: -2; */
+  text-align: center;
+  /*   z-index: -2; */
 }
 .options button {
   padding: 9px;
@@ -157,24 +154,21 @@ nav ul li a {
 
 .options-container {
   display: none;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  margin-bottom:30px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 30px;
 }
-.title-button
-{
-  display:flex;
-  flex-direction:column;
-  margin-top:5px;
+.title-button {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
 }
-.title-button span
-{
-  margin-bottom:5px;
+.title-button span {
+  margin-bottom: 5px;
 }
-.title-button button
-{
-  margin-bottom:5px;
+.title-button button {
+  margin-bottom: 5px;
 }
 
 .toggle-options {
@@ -186,19 +180,17 @@ nav ul li a {
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
-  margin-bottom:30px;
+  margin-bottom: 30px;
 }
 
 .target-container input {
   height: 100px;
   width: 100px;
   text-align: center;
- 
 }
 
-.target-container input:focus
-{
-  border-bottom: 1px solid #2196F3;
+.target-container input:focus {
+  border-bottom: 1px solid #2196f3;
 }
 
 .tasbeeh {
@@ -212,7 +204,7 @@ nav ul li a {
   border: 1px solid coral;
   border-radius: 16px;
   padding: 10px 15px;
-  box-shadow:1px 1px 7px 1px #a29595fc;
+  box-shadow: 1px 1px 7px 1px #a29595fc;
 }
 
 .tasbeeh-action {
@@ -223,7 +215,6 @@ nav ul li a {
   width: 100%;
   height: 100%;
   padding: 6px;
-
 }
 .tasbeeh .logo {
   margin-top: 15px;
@@ -231,21 +222,19 @@ nav ul li a {
 }
 
 .tasbeeh button {
-  box-shadow:0px 0px 6px 0px #5f5353fc;
+  box-shadow: 0px 0px 6px 0px #5f5353fc;
   outline: none;
   webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.tasbeeh button:active
-{
-  background-color:coral;
+.tasbeeh button:active {
+  background-color: coral;
 }
 
 .tasbeeh input {
@@ -258,12 +247,11 @@ nav ul li a {
   height: 60px;
   outline: none;
   text-align: end;
-   background-color:transparent;
+  background-color: transparent;
 }
 
-.tasbeeh input:focus
-{
-  border-bottom: 1px solid #2196F3;
+.tasbeeh input:focus {
+  border-bottom: 1px solid #2196f3;
 }
 
 .reset-container {
@@ -332,7 +320,6 @@ nav ul li a {
   cursor: pointer;
 }
 
-
 .comment {
   width: 300px;
 }
@@ -343,41 +330,38 @@ nav ul li a {
   padding: 15px;
 }
 
-footer
-{
-  background-color:coral;
-  margin-top:12px;
-  padding:14px;
-  color:#fff;
-  display:flex;
-  flex-direction:row;
+footer {
+  background-color: coral;
+  margin-top: 12px;
+  padding: 14px;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
 }
 
-footer a
-{
-  text-decoration:none;
-  color:#fff;
-  margin-bottom:2px;
+footer a {
+  text-decoration: none;
+  color: #fff;
+  margin-bottom: 2px;
 }
 
-footer .left{
-    display:flex;
-  flex-direction:column;
-  flex:1;
-  align-items:center
+footer .left {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
 }
 
-footer .right{
-   display:flex;
-  flex-direction:column;
-  flex:1;
-  align-items:center;
+footer .right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
 }
 
-footer .head
-{
-  margin-bottom:5px;
-  text-decoration:underline;
+footer .head {
+  margin-bottom: 5px;
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 800px) {
@@ -385,7 +369,7 @@ footer .head
     width: 20%;
   }
   .tasbeeh-container {
-/*     height: 94%; */
+    /*     height: 94%; */
   }
 
   .options button {
@@ -482,13 +466,12 @@ footer .head
 
   .comment {
     width: 300px;
-    margin-top:14px;
+    margin-top: 14px;
   }
 
-  .comment span
-  {
-    margin-bottom:5px;
-    color:coral;
+  .comment span {
+    margin-bottom: 5px;
+    color: coral;
   }
   .tasbeeh-textarea {
     width: 100%;
@@ -520,99 +503,82 @@ footer .head
 
 /* dark theme */
 
-.dark
-{
-  background-color:black;
-  color:#fff;
+.dark {
+  background-color: black;
+  color: #fff;
 }
 
-.dark .tasbeeh
-{
-  background-color:white;
-  color:#fff;
-  border:none;
-  box-shadow:none;
+.dark .tasbeeh {
+  background-color: white;
+  color: #fff;
+  border: none;
+  box-shadow: none;
 }
 
-.dark .comment span
-{
-  color:#fff;
+.dark .comment span {
+  color: #fff;
 }
 
-.dark .comment textarea
-{
-  color:#000;
-  border:none;
-  box-shadow:none;
+.dark .comment textarea {
+  color: #000;
+  border: none;
+  box-shadow: none;
 }
 
-.dark .tasbeeh .logo
-{
-  background-color:white;
-  color:#000;
-  border:none;
-  box-shadow:none;
+.dark .tasbeeh .logo {
+  background-color: white;
+  color: #000;
+  border: none;
+  box-shadow: none;
 }
 
-.dark .tasbeeh button
-{
-  border:none;
-  background-color:#565252;
-  color:#fff;
+.dark .tasbeeh button {
+  border: none;
+  background-color: #565252;
+  color: #fff;
 }
 
-.dark .tasbeeh button:active
-{
-  border:none;
-  background-color:#ffffff;
-  color:#000;
+.dark .tasbeeh button:active {
+  border: none;
+  background-color: #ffffff;
+  color: #000;
 }
 
-.dark .digital-tasbeeh-value
-{
-  border-bottom:1px solid #000;
-  color:
+.dark .digital-tasbeeh-value {
+  border-bottom: 1px solid #000;
+  color: ;
 }
 
-
-.dark footer
-{
-  background-color:#fff;
-  color:#000;
+.dark footer {
+  background-color: #fff;
+  color: #000;
 }
 
-.dark footer a
-{
-  color:#000
+.dark footer a {
+  color: #000;
 }
 
-.dark nav a
-{
-  color:#000
+.dark nav a {
+  color: #000;
 }
 
-.dark .options{
-/*   background-color:#fff; */
-/*   color:#000; */
-  border:none
+.dark .options {
+  /*   background-color:#fff; */
+  /*   color:#000; */
+  border: none;
 }
 
-.dark .options-button
-{
-  color:#000;
-  background-color:#fff;
-  
+.dark .options-button {
+  color: #000;
+  background-color: #fff;
 }
 
-.dark .options-container button
-{
-  color:#000;
-  background-color:#fff;
-  
+.dark .options-container button {
+  color: #000;
+  background-color: #fff;
 }
 
-.dark .preloader
-{
+.dark .preloader {
   background: #000;
-  color:#fff;
+  color: #fff;
 }
