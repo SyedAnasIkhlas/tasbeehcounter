@@ -115,7 +115,7 @@ note.addEventListener("keyup", () => {
 window.addEventListener("load", function() {
   const theme = getFromLocalStorage("theme")
   addTheme(theme)
-  preloader.classList.add("loading-finish");
+  // preloader.classList.add("loading-finish");
   const oldNote = getFromLocalStorage("note");
   const oldTarget = getFromLocalStorage("target");
   if (oldNote != null) {
