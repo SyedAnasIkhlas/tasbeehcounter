@@ -35,24 +35,21 @@ body {
 }
 
 .preloader {
-  position: absolute;
+  /* position: absolute; */
   /* display: flex; */
-  display: none;
+  /* display: none; */
   /* remove display none to show preloader */
-  justify-content: center;
+  /* justify-content: center;
   align-items: center;
   width: 100%;
   min-height: 100vh;
   background-color: coral;
   transition: opacity 2s ease-in-out;
-  overflow: none;
+  overflow: none; */
 }
 
 .loading-finish {
-  opacity: 0;
-  pointer-events: none;
-  height: 100%;
-  position: fixed;
+  /* git add  */
 }
 
 nav {

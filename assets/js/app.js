@@ -1,4 +1,4 @@
-const preloader = document.querySelector(".preloader");
+// const preloader = document.querySelector(".preloader");
 const note = document.querySelector(".tasbeeh-textarea");
 const noteValue = note.value;
 const slideMenu = document.querySelector(".slide-menu");
@@ -17,25 +17,26 @@ hamMenu.addEventListener("click", () => {
     if (link.getElementsByClassName.animation) {
       link.style.animation = ``;
     } else {
-      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 +
-        0.5}s`;
+      link.style.animation = `navLinkFade 0.5s ease forwards ${
+        index / 7 + 0.5
+      }s`;
     }
   });
   // Burger Slide
   hamMenu.classList.toggle("toggle");
 });
 
-optionsButton.addEventListener("click", function() {
+optionsButton.addEventListener("click", function () {
   optionsContainer.classList.toggle("toggle-options");
 });
 
-localStorageClear.addEventListener("click", function() {
+localStorageClear.addEventListener("click", function () {
   if (confirm("Press'Ok'if you want to clear all data!!!")) {
     localStorage.clear();
   }
 });
 
-const vibrateDevice = milsec => {
+const vibrateDevice = (milsec) => {
   return navigator.vibrate(milsec);
 };
 const digitalTasbeeh = () => {
@@ -45,7 +46,7 @@ const digitalTasbeeh = () => {
   const digitalAddButton = document.querySelector(".add");
   const digitalDeductButton = document.querySelector(".deduct");
 
-  window.addEventListener("load", function() {
+  window.addEventListener("load", function () {
     digitalValue = getFromLocalStorage("digital");
     console.log(digitalValue);
     if (digitalValue == null) {
@@ -59,7 +60,7 @@ const digitalTasbeeh = () => {
   });
 
   //   Resetting input filed to 0
-  digitalResetButton.addEventListener("click", function() {
+  digitalResetButton.addEventListener("click", function () {
     const resetDT = confirm("Are you sure you want to reset your record?");
     let targetValueBefore = digitalInput.value;
     if (resetDT == true) {
@@ -73,7 +74,7 @@ const digitalTasbeeh = () => {
   });
 
   //   Adding one to input filed
-  digitalAddButton.addEventListener("click", function() {
+  digitalAddButton.addEventListener("click", function () {
     vibrateDevice(200);
     digitalInputValue = parseInt(digitalInputValue);
     digitalInputValue = digitalInputValue + 1;
@@ -83,7 +84,7 @@ const digitalTasbeeh = () => {
   });
 
   //   Deducting one to input filed
-  digitalDeductButton.addEventListener("click", function() {
+  digitalDeductButton.addEventListener("click", function () {
     vibrateDevice(200);
     digitalInputValue = parseInt(digitalInputValue);
     if (digitalInputValue == 0) {
@@ -103,7 +104,7 @@ const setLocalStorage = (key, val) => {
   // console.log(localStorage.getItem(key));
 };
 //   Getting item from localstorage
-const getFromLocalStorage = key => {
+const getFromLocalStorage = (key) => {
   const storeVal = localStorage.getItem(key);
   return storeVal;
 };
@@ -112,10 +113,10 @@ note.addEventListener("keyup", () => {
   setLocalStorage("note", note.value);
 });
 
-window.addEventListener("load", function() {
-  const theme = getFromLocalStorage("theme")
-  addTheme(theme)
-  // preloader.classList.add("loading-finish");
+window.addEventListener("load", function () {
+  const theme = getFromLocalStorage("theme");
+  addTheme(theme);
+  // preloader.classList.add("loading-finish");~
   const oldNote = getFromLocalStorage("note");
   const oldTarget = getFromLocalStorage("target");
   if (oldNote != null) {
@@ -148,11 +149,10 @@ const targetStore = (action, inputVal) => {
     }
 
     if (action == "deduct") {
-      if(inputVal != 0){
+      if (inputVal != 0) {
         setLocalStorage("target", Math.abs(-target.value - 1));
         target.value = Math.abs(-target.value - 1);
       }
-      
     }
 
     if (action == "reset") {
@@ -165,18 +165,13 @@ const targetStore = (action, inputVal) => {
   }
 };
 
-
 // dark theme
 // function
-function addTheme(theme)
-{
+function addTheme(theme) {
   const body = document.querySelector("body");
-  if(theme == "default")
-  {
+  if (theme == "default") {
     body.classList.remove("dark");
-  }
-  else
-  {
+  } else {
     body.classList.toggle(theme);
   }
 }
@@ -184,21 +179,14 @@ function addTheme(theme)
 darkTheme = document.querySelector(".dark-theme");
 defaultTheme = document.querySelector(".default-theme");
 
-darkTheme.addEventListener("click",function()
-{
+darkTheme.addEventListener("click", function () {
   addTheme("dark");
-  setLocalStorage("theme","dark")
-})
+  setLocalStorage("theme", "dark");
+});
 
-defaultTheme.addEventListener("click",function()
-{
+defaultTheme.addEventListener("click", function () {
   addTheme("default");
-  setLocalStorage("theme","default")
-})
-
-
-
+  setLocalStorage("theme", "default");
+});
 
 digitalTasbeeh();
-
-
