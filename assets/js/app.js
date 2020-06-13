@@ -56,6 +56,9 @@ const digitalTasbeeh = () => {
   window.addEventListener("load", function () {
     // sound effect
     let effect = getFromLocalStorage("click-effect");
+    if (effect == null) {
+      setEffect("vibrate");
+    }
     if (effect == "") {
       setEffect("vibrate");
     }
@@ -125,6 +128,12 @@ const getFromLocalStorage = (key) => {
 };
 
 note.addEventListener("keyup", () => {
+  setLocalStorage("note", note.value);
+});
+note.addEventListener("change", () => {
+  setLocalStorage("note", note.value);
+});
+note.addEventListener("onChange", () => {
   setLocalStorage("note", note.value);
 });
 
