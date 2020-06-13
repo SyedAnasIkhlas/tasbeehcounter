@@ -1,43 +1,24 @@
 <html>
   <head>
-<script data-ad-client="ca-pub-6680559602339955" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Google Analytics -->
-    <script>
-      (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-        (i[r].q = i[r].q || []).push(arguments)
-      }, i[r].l = 1 * new Date(); a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-      ga('create', 'UA-XXXXX-Y', 'auto');
-      ga('send', 'pageview');
-    </script>
-    <!-- End Google Analytics -->
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-T5DL58Z');</script>
-    <!-- End Google Tag Manager -->
-
     <!-- Meta Tags -->
 
     <!-- Google meta tag -->
-    <meta name="google-site-verification" content="8c7TcfFuyyfvVHq_QwLYYLxSpRg5eAQ9TPwYUC2l6kE" />
+    <meta
+      name="google-site-verification"
+      content="8c7TcfFuyyfvVHq_QwLYYLxSpRg5eAQ9TPwYUC2l6kE"
+    />
     <!-- Google meta tag -->
-    
+
     <meta
       name="keywords"
       content="online counter,tasbeeh, real tasbeeh, online, easy, tally, quran, allah, Tasbeh, tasbih, digital tasbeeh,  تَـسْـبِـيْـح  , islam"
     />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="decription" content="online counter, counter,online digital/traditional tasbeeh" />
+    <meta
+      name="decription"
+      content="online counter, counter,online digital/traditional tasbeeh"
+    />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta name="theme-color" content="#FFA000" />
 
@@ -54,12 +35,15 @@
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T5DL58Z" height="0" width="0"
-        style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <!-- <div class="preloader">
-      <h1>loading</h1>
-    </div> -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-T5DL58Z"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden;"
+      ></iframe
+    ></noscript>
+
     <nav>
       <a class="logo" href="/">Tasbeeh Counter</a>
       <ul class="slide-menu">
@@ -74,68 +58,110 @@
         <div class="line line3"></div>
       </div>
     </nav>
-  
+
     <section class="tasbeeh-container">
       <div class="options">
         <button class="options-button">Options</button>
         <div class="options-container">
-
           <div class="title-button">
             <span>Theme</span>
-            <button class="dark-theme">Dark</button>  
-            <button class="default-theme">Default</button>  
+            <button class="dark-theme">Dark</button>
+            <button class="default-theme">Default</button>
+          </div>
+
+          <div class="title-button">
+            <span>Sound Effects</span>
+            <button class="huawei-click">Beep</button>
+            <button class="vibrate">Vibrate</button>
           </div>
 
           <div class="title-button">
             <span>Clear Memory</span>
-            <button class="local-storage">Clear Memory</button>  
+            <button class="local-storage">Clear Memory</button>
           </div>
-
         </div>
       </div>
       <div class="target-container">
-          <input type="number" id="target" class="target" value="0">
-          <span>Set Target</span>
+        <input type="number" id="target" class="target" value="0" />
+        <span>Set Target</span>
       </div>
       <section class="tasbeeh">
         <span class="logo">Tasbeeh Counter</span>
-        <input type="number"  name="digital-tasbeeh-value"  class="digital-tasbeeh-value" id="digital-tasbeeh-value" value="0" />
+        <input
+          type="number"
+          name="digital-tasbeeh-value"
+          class="digital-tasbeeh-value"
+          id="digital-tasbeeh-value"
+          value="0"
+        />
         <div class="tasbeeh-action">
-          <div class="reset-container"><button class="reset">R</button></div>
-          <div class="add-container"><button class="add"></button></div>
-          <div class="deduct-container"><button class="deduct">-1</button></div>
+          <div class="reset-container">
+            <button class="reset">R</button>
+          </div>
+          <div class="add-container">
+            <button class="add"></button>
+          </div>
+          <div class="deduct-container">
+            <button class="deduct">-1</button>
+          </div>
         </div>
       </section>
       <div class="comment">
-          <span>Note</span>
-        <textarea name="" id="tasbeeh-textarea" class="tasbeeh-textarea"  placeholder="Add Note Here"></textarea>
+        <span>Note</span>
+        <div class="col">
+          <textarea
+            name=""
+            id="tasbeeh-textarea"
+            class="tasbeeh-textarea"
+            placeholder="Add Note Here"
+          ></textarea>
+
+          <img
+            src="https://img.icons8.com/ios/80/000000/high-volume.png"
+            class="voice-to-text"
+            onclick="record()"
+          />
+        </div>
       </div>
     </section>
 
     <div class="souq-ad">
       <div id="amzn-assoc-ad-83c8e9ca-982c-4365-85d9-539e5642c4f4"></div>
-      <script async
-        src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=83c8e9ca-982c-4365-85d9-539e5642c4f4"></script>
+      <script
+        async
+        src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=83c8e9ca-982c-4365-85d9-539e5642c4f4"
+      ></script>
     </div>
 
     <div class="souq-ad">
-    <iframe width="300" height="250" marginheight="0"
-      marginwidth="0" frameborder="0"
-      scrolling="no" 
-      src="https://affiliates.souq.com/api/widget?phgid=1101l9xx8&pubref=device||||&country=sa&lang=en&category=33&utm_source=affiliate_hub&utm_medium=cpt&utm_content=affiliate&utm_campaign=100l2&u_type=carousel&u_c=300x250&u_fmt=carousel&u_a=1011l111782&u_as=" 
+      <iframe
+        width="300"
+        height="250"
+        marginheight="0"
+        marginwidth="0"
+        frameborder="0"
+        scrolling="no"
+        src="https://affiliates.souq.com/api/widget?phgid=1101l9xx8&pubref=device||||&country=sa&lang=en&category=33&utm_source=affiliate_hub&utm_medium=cpt&utm_content=affiliate&utm_campaign=100l2&u_type=carousel&u_c=300x250&u_fmt=carousel&u_a=1011l111782&u_as="
       ></iframe>
-       <a href='https://www.symptoma.ro/'>symptoma</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=8db2ed3eae460700f5c2ea00cb63d308e1321e8f'></script>
-<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/659240/t/0"></script>
-      </div>
-      <script type="text/javascript">
-    amzn_assoc_ad_type = "link_enhancement_widget";
-    amzn_assoc_tracking_id = "2554313151653-20";
-    amzn_assoc_linkid = "1042a571df9cc2d1b0680ae7dc0ca4ef";
-    amzn_assoc_placement = "";
-    amzn_assoc_marketplace = "amazon";
-    amzn_assoc_region = "US";
-</script>
-<script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
+      <a href="https://www.symptoma.ro/">symptoma</a>
+      <script
+        type="text/javascript"
+        src="https://www.freevisitorcounters.com/auth.php?id=8db2ed3eae460700f5c2ea00cb63d308e1321e8f"
+      ></script>
+      <script
+        type="text/javascript"
+        src="https://www.freevisitorcounters.com/en/home/counter/659240/t/0"
+      ></script>
+    </div>
+    <script type="text/javascript">
+      amzn_assoc_ad_type = "link_enhancement_widget";
+      amzn_assoc_tracking_id = "2554313151653-20";
+      amzn_assoc_linkid = "1042a571df9cc2d1b0680ae7dc0ca4ef";
+      amzn_assoc_placement = "";
+      amzn_assoc_marketplace = "amazon";
+      amzn_assoc_region = "US";
+    </script>
+    <script src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=US"></script>
     <footer>
       <div class="left">
         <span class="head">More Links</span>

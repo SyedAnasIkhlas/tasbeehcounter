@@ -169,6 +169,9 @@ nav ul li a {
 .title-button button {
   margin-bottom: 5px;
 }
+.title-button button:hover {
+  background-color: #5f5353;
+}
 
 .toggle-options {
   display: flex;
@@ -322,9 +325,23 @@ nav ul li a {
 .comment {
   width: 300px;
 }
+.col {
+  border: 1px solid coral;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.col img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
 .tasbeeh-textarea {
   width: 100%;
-  border: 1px solid coral;
+  outline: none;
+  border: none;
   border-radius: 5px;
   padding: 15px;
 }
@@ -545,7 +562,7 @@ footer .head {
 
 .dark .digital-tasbeeh-value {
   border-bottom: 1px solid #000;
-  color: ;
+  /* color: ; */
 }
 
 .dark footer {

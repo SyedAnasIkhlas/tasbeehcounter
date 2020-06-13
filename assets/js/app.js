@@ -9,6 +9,13 @@ const optionsButton = document.querySelector(".options-button");
 const optionsContainer = document.querySelector(".options-container");
 const target = document.querySelector(".target");
 const targetValue = target.value;
+// sounds
+const huaweiClick = document.querySelector(".huawei-click");
+const vibrate = document.querySelector(".vibrate");
+// voice icons
+const VTT = document.querySelector(".voice-to-text");
+const recordingOff = "https://img.icons8.com/ios/80/000000/high-volume.png";
+const recordingOn = "https://img.icons8.com/officel/80/000000/high-volume.png";
 
 hamMenu.addEventListener("click", () => {
   slideMenu.classList.toggle("slide");
@@ -47,8 +54,13 @@ const digitalTasbeeh = () => {
   const digitalDeductButton = document.querySelector(".deduct");
 
   window.addEventListener("load", function () {
+    // sound effect
+    let effect = getFromLocalStorage("click-effect");
+    if (effect == "") {
+      setEffect("vibrate");
+    }
+
     digitalValue = getFromLocalStorage("digital");
-    console.log(digitalValue);
     if (digitalValue == null) {
       digitalValue = 0;
       digitalInput.value = 0;
@@ -64,7 +76,8 @@ const digitalTasbeeh = () => {
     const resetDT = confirm("Are you sure you want to reset your record?");
     let targetValueBefore = digitalInput.value;
     if (resetDT == true) {
-      vibrateDevice(200);
+      // vibrateDevice(200);
+      clickEffect(200);
       digitalInputValue = parseInt(digitalInputValue);
       digitalInputValue = digitalInputValue - digitalInputValue;
       digitalInput.value = digitalInputValue;
@@ -75,7 +88,8 @@ const digitalTasbeeh = () => {
 
   //   Adding one to input filed
   digitalAddButton.addEventListener("click", function () {
-    vibrateDevice(200);
+    // vibrateDevice(200);
+    clickEffect(200);
     digitalInputValue = parseInt(digitalInputValue);
     digitalInputValue = digitalInputValue + 1;
     digitalInput.value = digitalInputValue;
@@ -85,7 +99,8 @@ const digitalTasbeeh = () => {
 
   //   Deducting one to input filed
   digitalDeductButton.addEventListener("click", function () {
-    vibrateDevice(200);
+    // vibrateDevice(200);
+    clickEffect(200);
     digitalInputValue = parseInt(digitalInputValue);
     if (digitalInputValue == 0) {
       digitalInputValue = 0;
@@ -143,7 +158,9 @@ const targetStore = (action, inputVal) => {
       target.value = target.value - 1;
       if (target.value == 0) {
         setLocalStorage("target", 0);
-        vibrateDevice(300);
+        // vibrateDevice(300);
+        clickEffect(300);
+
         alert("Target Reached");
       }
     }
@@ -189,4 +206,64 @@ defaultTheme.addEventListener("click", function () {
   setLocalStorage("theme", "default");
 });
 
+// sound effect
+const setEffect = (sound) => {
+  if (getFromLocalStorage("click-effect")) {
+    localStorage.removeItem("click-effect");
+  }
+  setLocalStorage("click-effect", sound);
+};
+
+huaweiClick.addEventListener("click", () => {
+  setEffect("huaweiClick");
+  playClickEffect("assets/beep/beep.mp3");
+});
+vibrate.addEventListener("click", () => {
+  setEffect("vibrate");
+  vibrateDevice(200);
+});
+
+const playClickEffect = (path) => {
+  const clickEffect = new Audio(path);
+  // clickEffect.volume(0.5);
+  clickEffect.play();
+};
+
+const clickEffect = (duration = 200) => {
+  // save current effect type
+  let effect = getFromLocalStorage("click-effect");
+  // get current effect type
+  if (effect == "vibrate") {
+    vibrateDevice(duration);
+  }
+  if (effect == "huaweiClick") {
+    playClickEffect("assets/beep/beep.mp3");
+  }
+};
+let listening = false;
+// voice to text
+const record = () => {
+  VTT.setAttribute("src", recordingOn);
+  const SpeechRecognition =
+    window.speechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+  recognition.interimResults = true;
+
+  recognition.addEventListener("result", (e) => {
+    for (const res of e.results) {
+      const transcript = res[0].transcript;
+      console.log(transcript);
+      note.innerHTML = transcript;
+    }
+  });
+  recognition.addEventListener("end", (e) => {
+    VTT.setAttribute("src", recordingOff);
+  });
+  if (recognition.interimResults) {
+    VTT.setAttribute("src", recordingOn);
+  } else {
+    VTT.setAttribute("src", recordingOff);
+  }
+  recognition.start();
+};
 digitalTasbeeh();
