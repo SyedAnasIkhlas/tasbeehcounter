@@ -1,3 +1,8 @@
+<!-- sw -->
+navigator.serviceWorker &&
+navigator.serviceWorker.register('SW.js').then(function (registration)
+{
+});
 // const preloader = document.querySelector(".preloader");
 const note = document.querySelector(".tasbeeh-textarea");
 const noteValue = note.value;

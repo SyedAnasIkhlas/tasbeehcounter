@@ -1,0 +1,33 @@
+{
+  "short_name": "Tasbeeh Counter",
+  "name": "Tabeeh Counter",
+  "icons": [
+    {
+      "src": "assets/logo/logo512.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "assets/logo/logo512.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/logo/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "share_target": {
+    "action": "/share",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#222831",
+  "background_color": "#222831"
+}
