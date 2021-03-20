@@ -1,4 +1,4 @@
-<!-- sw -->
+// <!-- sw -->
 navigator.serviceWorker &&
 navigator.serviceWorker.register('SW.js').then(function (registration)
 {
@@ -13,6 +13,7 @@ const localStorageClear = document.querySelector(".local-storage");
 const optionsButton = document.querySelector(".options-button");
 const optionsContainer = document.querySelector(".options-container");
 const target = document.querySelector(".target");
+const targetTime = document.querySelector(".target-time");
 const targetValue = target.value;
 // sounds
 const huaweiClick = document.querySelector(".huawei-click");
@@ -21,7 +22,13 @@ const vibrate = document.querySelector(".vibrate");
 const VTT = document.querySelector(".voice-to-text");
 const recordingOff = "https://img.icons8.com/ios/80/000000/high-volume.png";
 const recordingOn = "https://img.icons8.com/officel/80/000000/high-volume.png";
+// Time
 
+const targetDurationDiv = document.querySelector(".target-duration");
+const date = new Date();
+let startingTime;
+let endingTime;
+let targetReachedAt;
 hamMenu.addEventListener("click", () => {
   slideMenu.classList.toggle("slide");
   // Animate Link
@@ -96,6 +103,7 @@ const digitalTasbeeh = () => {
 
   //   Adding one to input filed
   digitalAddButton.addEventListener("click", function () {
+    // console.log("clciked")
     // vibrateDevice(200);
     clickEffect(200);
     digitalInputValue = parseInt(digitalInputValue);
@@ -154,6 +162,7 @@ window.addEventListener("load", function () {
 
   if (oldTarget != null) {
     target.value = oldTarget;
+    startingTime = [new Date().getHours(),new Date().getMinutes(),new Date().getSeconds()]
   } else {
     target.value = 0;
   }
@@ -161,6 +170,10 @@ window.addEventListener("load", function () {
 
 target.addEventListener("keyup", () => {
   setLocalStorage("target", target.value);
+    //set timing
+    targetDurationDiv.classList.remove("visible")
+  startingTime = [new Date().getHours(),new Date().getMinutes(),new Date().getSeconds()]
+  console.log(startingTime)
 });
 
 const targetStore = (action, inputVal) => {
@@ -172,6 +185,11 @@ const targetStore = (action, inputVal) => {
       target.value = target.value - 1;
       if (target.value == 0) {
         setLocalStorage("target", 0);
+        endingTime = [new Date().getHours(),new Date().getMinutes(),new Date().getSeconds()]
+        console.log(endingTime)
+        targetReachedAt =`${endingTime[0]-startingTime[0]} : ${endingTime[1]-startingTime[1]} : ${endingTime[2]-startingTime[2]} `
+        targetTime.innerText = targetReachedAt;
+        targetDurationDiv.classList.add("visible")
         // vibrateDevice(300);
         clickEffect(300);
 

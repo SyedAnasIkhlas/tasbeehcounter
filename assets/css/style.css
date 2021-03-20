@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Kulim+Park&display=swap");
-
+:root{
+  color:red;
+}
 * {
   margin: 0px;
   padding: 0px;
@@ -34,6 +36,17 @@ body {
   min-height: 100vh;
 }
 
+.target-duration{
+  margin-top:5px;
+  visibility: hidden;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.target-duration.visible{
+  visibility: visible;
+}
 .preloader {
   /* position: absolute; */
   /* display: flex; */
