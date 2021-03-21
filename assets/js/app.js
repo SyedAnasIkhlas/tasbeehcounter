@@ -4,6 +4,16 @@ navigator.serviceWorker.register('SW.js').then(function (registration)
 {
 });
 // const preloader = document.querySelector(".preloader");
+
+// options
+const durationCalculationOptionButton = document.querySelector(".duration-calculation-option");
+const targetRemaingOptionButton = document.querySelector(".target-remaing-option");
+const waterAnimationOptionButton = document.querySelector(".water-animation-option");
+let durationCalculationOption = localStorage.getItem("durationCalculationOption") == null ? true : localStorage.getItem("durationCalculationOption") ;
+let targetRemaingOption  = localStorage.getItem("targetRemaingOption") == null ? true : localStorage.getItem("targetRemaingOption");
+// pregress Animation
+let progressAnimationOption = localStorage.getItem("progressAnimationOption") == null ? false : localStorage.getItem("progressAnimationOption");
+
 const note = document.querySelector(".tasbeeh-textarea");
 const noteValue = note.value;
 const slideMenu = document.querySelector(".slide-menu");
@@ -14,7 +24,10 @@ const optionsButton = document.querySelector(".options-button");
 const optionsContainer = document.querySelector(".options-container");
 const target = document.querySelector(".target");
 const targetTime = document.querySelector(".target-time");
+const targetTextDuration = document.querySelector(".target-text-duration");
 const targetValue = target.value;
+const progress = document.querySelector(".progress");
+
 // sounds
 const huaweiClick = document.querySelector(".huawei-click");
 const vibrate = document.querySelector(".vibrate");
@@ -57,7 +70,37 @@ localStorageClear.addEventListener("click", function () {
 
 const vibrateDevice = (milsec) => {
   return navigator.vibrate(milsec);
+
 };
+
+// progress animation
+const progressAnimation = (percentage) => {
+  if(progressAnimationOption){
+    progress.style.height = `${100-percentage}%`;
+  }
+  if(percentage == 0){
+    progress.style.height = `${0}%`;
+  }
+}
+// get percentage completed and remaining
+
+const percentageRemaining = (currentVal,targetVal ) => {
+  let total = parseInt(currentVal) + parseInt(targetVal);
+  let remaining = Math.round(targetVal/total*100);
+  console.log(100-remaining)
+ 
+  if(targetVal == 1 ) 
+  {
+    targetTextDuration.innerText = "Set Target";
+    progressAnimation("0%");
+  }
+    else
+  {
+    targetTextDuration.innerText = `${remaining}% remaining`;
+    progressAnimation(remaining);
+  }
+}
+
 const digitalTasbeeh = () => {
   const digitalInput = document.querySelector(".digital-tasbeeh-value");
   let digitalInputValue = digitalInput.value;
@@ -74,7 +117,12 @@ const digitalTasbeeh = () => {
     if (effect == "") {
       setEffect("vibrate");
     }
+    // options
+    // targetRemaingOption = getFromLocalStorage("targetRemaingOption") || true;
+    // durationCalculationOption = getFromLocalStorage("targetRemaingOption") || true;
 
+
+    // count
     digitalValue = getFromLocalStorage("digital");
     if (digitalValue == null) {
       digitalValue = 0;
@@ -98,7 +146,12 @@ const digitalTasbeeh = () => {
       digitalInput.value = digitalInputValue;
       targetStore("reset", targetValueBefore);
       setLocalStorage("digital", digitalInputValue);
+       if(targetRemaingOption){
+      target.value != 0 ? percentageRemaining(digitalInputValue, target.value) : null
+      }
     }
+
+    
   });
 
   //   Adding one to input filed
@@ -111,6 +164,10 @@ const digitalTasbeeh = () => {
     digitalInput.value = digitalInputValue;
     targetStore("add", 0);
     setLocalStorage("digital", digitalInputValue);
+    if(targetRemaingOption){
+      target.value != 0 ? percentageRemaining(digitalInputValue, target.value) : null
+    }
+
   });
 
   //   Deducting one to input filed
@@ -126,6 +183,9 @@ const digitalTasbeeh = () => {
     targetStore("deduct", digitalInput.value);
     setLocalStorage("digital", digitalInputValue);
     digitalInput.value = digitalInputValue;
+    if(targetRemaingOption){
+      target.value != 0 ? percentageRemaining(digitalInputValue, target.value) : null
+    }
   });
 };
 
@@ -171,9 +231,11 @@ window.addEventListener("load", function () {
 target.addEventListener("keyup", () => {
   setLocalStorage("target", target.value);
     //set timing
-    targetDurationDiv.classList.remove("visible")
-  startingTime = [new Date().getHours(),new Date().getMinutes(),new Date().getSeconds()]
-  console.log(startingTime)
+    if(durationCalculationOption){
+      targetDurationDiv.classList.remove("visible")
+      startingTime = [new Date().getHours(),new Date().getMinutes(),new Date().getSeconds()]
+      console.log(startingTime)
+    }
 });
 
 const targetStore = (action, inputVal) => {
@@ -185,11 +247,14 @@ const targetStore = (action, inputVal) => {
       target.value = target.value - 1;
       if (target.value == 0) {
         setLocalStorage("target", 0);
-        endingTime = [new Date().getHours(),new Date().getMinutes(),new Date().getSeconds()]
-        console.log(endingTime)
-        targetReachedAt =`${endingTime[0]-startingTime[0]} : ${endingTime[1]-startingTime[1]} : ${endingTime[2]-startingTime[2]} `
-        targetTime.innerText = targetReachedAt;
-        targetDurationDiv.classList.add("visible")
+        progressAnimation(0);
+        if(durationCalculationOption){
+          endingTime = [new Date().getHours(),new Date().getMinutes(),new Date().getSeconds()]
+          console.log(endingTime)
+          targetReachedAt =`${endingTime[0]-startingTime[0]} : ${endingTime[1]-startingTime[1]} : ${endingTime[2]-startingTime[2]} `
+          targetTime.innerText = targetReachedAt;
+          targetDurationDiv.classList.add("visible")
+        }
         // vibrateDevice(300);
         clickEffect(300);
 
@@ -237,6 +302,34 @@ defaultTheme.addEventListener("click", function () {
   addTheme("default");
   setLocalStorage("theme", "default");
 });
+
+// options
+targetRemaingOptionButton.addEventListener("click",()=>{
+  if(targetRemaingOption == true){
+    targetRemaingOption = false
+  }else{
+    targetRemaingOption = true
+  }
+  setLocalStorage("targetRemaingOption",targetRemaingOption)
+})
+
+durationCalculationOptionButton.addEventListener("click",()=>{
+  if(durationCalculationOption == true){
+    durationCalculationOption = false
+  }else{
+    durationCalculationOption = true
+  }
+  setLocalStorage("durationCalculationOption",durationCalculationOption)
+})
+
+waterAnimationOptionButton.addEventListener("click",()=>{
+  if(progressAnimationOption == true){
+    progressAnimationOption = false
+  }else{
+    progressAnimationOption = true
+  }
+  setLocalStorage("progressAnimationOption",progressAnimationOption)
+})
 
 // sound effect
 const setEffect = (sound) => {
@@ -298,4 +391,5 @@ const record = () => {
   }
   recognition.start();
 };
+
 digitalTasbeeh();
