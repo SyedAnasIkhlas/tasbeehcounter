@@ -101,13 +101,13 @@ const percentageRemaining = (currentVal, targetVal) => {
 	let remaining = Math.round((targetVal / total) * 100);
 	console.log(100 - remaining);
 
-	if (targetVal == 1) {
-		targetTextDuration.innerText = "Set Target";
-		progressAnimation("0%");
-	} else {
-		targetTextDuration.innerText = `${remaining}% remaining`;
-		progressAnimation(remaining);
-	}
+	// if (targetVal == 0) {
+	// 	targetTextDuration.innerText = "Set Target";
+	// 	progressAnimation("0%");
+	// } else {
+	targetTextDuration.innerText = `${remaining}% remaining`;
+	progressAnimation(remaining);
+	// }
 };
 
 const digitalTasbeeh = () => {
@@ -293,7 +293,8 @@ const targetStore = (action, inputVal) => {
 				}
 				// vibrateDevice(300);
 				clickEffect(300);
-
+				// reset the target text
+				targetTextDuration.innerText = "Set Target";
 				alert("Target Reached");
 			}
 		}
