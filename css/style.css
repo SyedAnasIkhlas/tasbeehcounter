@@ -243,6 +243,7 @@ nav ul li a {
   gap: 11px;
   width: 80%;
   margin: 0 auto;
+  justify-content: center;
 
 }
 
@@ -490,6 +491,10 @@ footer .head {
 }
 
 @media screen and (min-width: 800px) {
+  .options-container {
+    justify-content: unset;
+  }
+
   nav ul {
     width: 20%;
   }
