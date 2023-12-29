@@ -142,6 +142,16 @@ const digitalTasbeeh = () => {
 		}
 	});
 
+	digitalInput.addEventListener("keyup", function () {
+		digitalInputValue = digitalInput.value;
+		setLocalStorage("digital", digitalInputValue);
+		if (targetRemaingOption) {
+			target.value != 0
+				? percentageRemaining(digitalInputValue, target.value)
+				: null;
+		}
+	});
+
 	//   Resetting input filed to 0
 	digitalResetButton.addEventListener("click", function () {
 		const resetDT = confirm("Are you sure you want to reset your record?");
