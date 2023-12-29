@@ -174,9 +174,8 @@ const digitalTasbeeh = () => {
 
 	//   Adding one to input filed
 	digitalAddButton.addEventListener("click", function () {
-		// console.log("clciked")
 		// vibrateDevice(200);
-		clickEffect(200);
+		clickEffect(100);
 		digitalInputValue = parseInt(digitalInputValue);
 		digitalInputValue = digitalInputValue + 1;
 		digitalInput.value = digitalInputValue;
